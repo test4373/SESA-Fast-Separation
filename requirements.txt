@@ -1,0 +1,6 @@
+audio-separator[gpu]==0.30.1
+scipy
+gradio==5.19.0
+yt_dlp
+pypresence
+youtube_dl
