@@ -63,9 +63,7 @@
 2. **Separate Audio**:
    - **Roformer Tab**: Upload an audio file or enter a YouTube URL, select a model, and click "Separate!".
    - **Auto Ensemble Tab**: Choose multiple models, select an ensemble method, and click "Run Ensemble!" for a combined result.
-
-## Interface Screenshots
-*(Optionally, add screenshots of the interface here.)*
+   - 
 
 ## Technical Details
 - **Backend**: Utilizes the `audio-separator` library with Roformer models.
