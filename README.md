@@ -1,5 +1,3 @@
-Tabii, işte tamamen İngilizce bir `README.md` dosyası:
-
 ---
 
 ```markdown
