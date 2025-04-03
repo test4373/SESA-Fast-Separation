@@ -459,7 +459,7 @@ def create_interface():
 
             with gr.Tab("🎤 Roformer"):
                 roformer_audio = gr.Audio(label="🎧 Input Audio", type="filepath")
-                roformer_exclude_stems = gr.Textbox(label="🚫 Exclude Stems (comma-separated)", placeholder="e.g., Vocals, Drums")
+                roformer_exclude_stems = gr.Textbox(label="🚫 Exclude Stems (comma-separated)", placeholder="e.g., vocals, drums")
                 roformer_category = gr.Dropdown(label="📚 Category", choices=list(ROFORMER_MODELS.keys()), value="General Purpose")
                 roformer_model = gr.Dropdown(label="🛠️ Model", choices=list(ROFORMER_MODELS["General Purpose"].keys()))
                 with gr.Row():
@@ -478,7 +478,7 @@ def create_interface():
 
             with gr.Tab("🎚️ Auto Ensemble"):
                 ensemble_audio = gr.Audio(label="🎧 Input Audio", type="filepath")
-                ensemble_exclude_stems = gr.Textbox(label="🚫 Exclude Stems (comma-separated)", placeholder="e.g., Vocals, Drums")
+                ensemble_exclude_stems = gr.Textbox(label="🚫 Exclude Stems (comma-separated)", placeholder="e.g., vocals, drums")
                 ensemble_category = gr.Dropdown(label="📚 Category", choices=list(ROFORMER_MODELS.keys()), value="Instrumentals")
                 ensemble_models = gr.Dropdown(label="🛠️ Models", choices=list(ROFORMER_MODELS["Instrumentals"].keys()), multiselect=True)
                 with gr.Row():
