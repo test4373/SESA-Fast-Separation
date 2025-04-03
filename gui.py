@@ -445,8 +445,8 @@ def update_ensemble_models(category):
 
 # Arayüzü bir fonksiyon olarak tanımla
 def create_interface():
-    with gr.Blocks(title="🎵 Audio-Separator 🎵", css=CSS, elem_id="app-container") as app:
-        gr.Markdown("<h1 class='header-text'>🎵 Audio-Separator 🎵</h1>")
+    with gr.Blocks(title="🎵 SESA-Fast-Separation 🎵", css=CSS, elem_id="app-container") as app:
+        gr.Markdown("<h1 class='header-text'>🎵 SESA-Fast-Separation 🎵</h1>")
         
         with gr.Tabs():
             with gr.Tab("⚙️ Settings"):
