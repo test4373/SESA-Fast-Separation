@@ -83,6 +83,6 @@
 This project is licensed under the [MIT License](LICENSE).
 
 ## Acknowledgments
-- The [audio-separator](https://github.com/[[relevant-repo](https://github.com/nomadkaraoke/python-audio-separator)]) team.
+- The [audio-separator](https://github.com/[https://github.com/nomadkaraoke/python-audio-separator]) team.
 - Gradio and the open-source community.
 ```
