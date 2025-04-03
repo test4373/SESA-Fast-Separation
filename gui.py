@@ -9,8 +9,8 @@ from audio_separator.separator import Separator
 import numpy as np
 import librosa
 import soundfile as sf
-from ensemble import ensemble_files  # ensemble.py'dan import
-import shutil  # Klasör temizleme için eklendi
+from ensemble import ensemble_files
+import shutil
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 use_autocast = device == "cuda"
