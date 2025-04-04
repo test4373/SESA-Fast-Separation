@@ -5,7 +5,7 @@ import os
 import librosa
 import soundfile as sf
 import numpy as np
-import argparse
+import argparse  # Add this line
 import gc
 
 def stft(wave, nfft, hl):
@@ -133,17 +133,19 @@ def ensemble_files(args):
 
     total_duration = durations[0]
     sr = librosa.get_samplerate(args.files[0])
-    chunk_duration = 30  # 30 saniyelik parçalar
+    chunk_duration = 30  # 30-second chunks
     overlap_duration = 0.1  # 100 ms overlap
     chunk_samples = int(chunk_duration * sr)
     overlap_samples = int(overlap_duration * sr)
-    step_samples = chunk_samples - overlap_samples  # Adım boyutu overlap ile azaltılır
+    step_samples = chunk_samples - overlap_samples  # Step size reduced by overlap
     total_samples = int(total_duration * sr)
 
-    # Chunk uzunluğunu hop_length ile hizala
+    # Align chunk length with hop_length
     hop_length = 1024
     chunk_samples = ((chunk_samples + hop_length - 1) // hop_length) * hop_length
     step_samples = chunk_samples - overlap_samples
+
+    prev_chunk_tail = None  # To store the tail of the previous chunk for crossfading
 
     with sf.SoundFile(args.output, 'w', sr, channels=2, subtype='FLOAT') as outfile:
         for start in range(0, total_samples, step_samples):
@@ -155,27 +157,30 @@ def ensemble_files(args):
                 if not os.path.isfile(f):
                     print('Error. Can\'t find file: {}. Check paths.'.format(f))
                     exit()
-                print(f'Reading chunk from file: {f} (start: {start/sr}s, duration: {(end-start)/sr}s)')
+                # print(f'Reading chunk from file: {f} (start: {start/sr}s, duration: {(end-start)/sr}s)')
                 wav, _ = librosa.load(f, sr=sr, mono=False, offset=start/sr, duration=(end-start)/sr)
                 data.append(wav)
 
             res = average_waveforms(data, weights, args.type, chunk_length)
             res = res.astype(np.float32)
-            print(f'Chunk result shape: {res.shape}')
+            #print(f'Chunk result shape: {res.shape}')
 
-            # Crossfade ile birleştirme
-            if start > 0:
-                outfile.seek(outfile.tell() - overlap_samples)
-                prev_data = outfile.read(overlap_samples).T
+            # Crossfade with the previous chunk's tail
+            if start > 0 and prev_chunk_tail is not None:
                 new_data = res[:, :overlap_samples]
                 fade_out = np.linspace(1, 0, overlap_samples)
                 fade_in = np.linspace(0, 1, overlap_samples)
-                blended = prev_data * fade_out + new_data * fade_in
-                outfile.seek(outfile.tell() - overlap_samples)
+                blended = prev_chunk_tail * fade_out + new_data * fade_in
                 outfile.write(blended.T)
                 outfile.write(res[:, overlap_samples:].T)
             else:
                 outfile.write(res.T)
+
+            # Store the tail of the current chunk for the next iteration
+            if chunk_length > overlap_samples:
+                prev_chunk_tail = res[:, -overlap_samples:]
+            else:
+                prev_chunk_tail = res[:, :]
 
             del data
             del res
