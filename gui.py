@@ -105,27 +105,28 @@ OUTPUT_FORMATS = ['wav', 'flac', 'mp3', 'ogg', 'opus', 'm4a', 'aiff', 'ac3']
 
 # CSS (değişmedi, aynı kalıyor)
 CSS = """
-/* İnce ve Ortalanmış Tema */
+/* Modern ve Etkileşimli Tema */
 #app-container {
-    max-width: 600px;
+    max-width: 900px;
     width: 100%;
     margin: 0 auto;
-    padding: 0.2rem;
+    padding: 1rem;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
-    background-color: #2d0b0b;
+    background: linear-gradient(135deg, #1a0b2e, #2e1a47);
     position: relative;
+    overflow: hidden;
 }
 body {
     background: url('/content/logo.jpg') no-repeat center center fixed;
     background-size: cover;
     margin: 0;
     padding: 0;
-    font-family: 'Poppins', sans-serif;
-    color: #C0C0C0;
+    font-family: 'Roboto', sans-serif;
+    color: #e0e0e0;
     display: flex;
     justify-content: center;
 }
@@ -136,163 +137,180 @@ body::after {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(45, 11, 11, 0.85);
+    background: rgba(26, 11, 46, 0.8);
     z-index: -1;
 }
 .logo-container {
     position: fixed;
-    top: 0.2rem;
+    top: 1rem;
     left: 50%;
     transform: translateX(-50%);
     z-index: 2000;
 }
 .logo-img {
-    width: 60px;
+    width: 80px;
     height: auto;
+    transition: transform 0.3s ease;
+}
+.logo-img:hover {
+    transform: scale(1.1);
 }
 .header-text {
     text-align: center;
-    padding: 2rem 0.3rem 0.3rem;
-    color: #ff4040;
-    font-size: 1.4rem;
-    font-weight: 700;
-    text-shadow: 0 0 5px rgba(255, 64, 64, 0.4);
-    z-index: 1500;
+    padding: 3rem 0 1rem;
+    color: #ff6b6b;
+    font-size: 2rem;
+    font-weight: 800;
+    text-shadow: 0 0 10px rgba(255, 107, 107, 0.7);
+    animation: glow 2s infinite alternate;
+}
+@keyframes glow {
+    0% { text-shadow: 0 0 10px rgba(255, 107, 107, 0.7); }
+    100% { text-shadow: 0 0 20px rgba(255, 107, 107, 1); }
 }
 .dubbing-theme {
-    background: linear-gradient(to bottom, #800000, #2d0b0b);
-    border-radius: 6px;
-    padding: 0.4rem;
-    box-shadow: 0 3px 10px rgba(255, 64, 64, 0.2);
+    background: rgba(46, 26, 71, 0.9);
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 5px 20px rgba(255, 107, 107, 0.3);
     width: 100%;
+    transition: transform 0.3s ease;
+}
+.dubbing-theme:hover {
+    transform: translateY(-5px);
 }
 .footer {
     text-align: center;
-    padding: 0.2rem;
-    color: #ff4040;
-    font-size: 10px;
+    padding: 0.5rem;
+    color: #ff6b6b;
+    font-size: 12px;
     position: fixed;
     bottom: 0;
     width: 100%;
-    max-width: 600px;
-    background: rgba(45, 11, 11, 0.7);
+    max-width: 900px;
+    background: rgba(26, 11, 46, 0.7);
     z-index: 1001;
     left: 50%;
     transform: translateX(-50%);
 }
 button {
-    background: #800000 !important;
-    border: 1px solid #ff4040 !important;
-    color: #C0C0C0 !important;
-    border-radius: 4px !important;
-    padding: 4px 8px !important;
-    font-size: 0.75rem !important;
-    transition: all 0.2s ease !important;
+    background: #ff6b6b !important;
+    border: none !important;
+    color: #fff !important;
+    border-radius: 8px !important;
+    padding: 8px 16px !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 2px 8px rgba(255, 107, 107, 0.4) !important;
 }
 button:hover {
-    transform: scale(1.03) !important;
-    background: #ff4040 !important;
-    box-shadow: 0 3px 12px rgba(255, 64, 64, 0.5) !important;
+    transform: scale(1.05) !important;
+    background: #ff8787 !important;
+    box-shadow: 0 4px 12px rgba(255, 107, 107, 0.6) !important;
 }
 .compact-upload.horizontal {
-    display: inline-flex !important;
+    display: flex !important;
     align-items: center !important;
-    gap: 4px !important;
-    max-width: 200px !important;
-    height: 28px !important;
-    padding: 0 5px !important;
-    border: 1px solid #ff4040 !important;
-    background: rgba(128, 0, 0, 0.5) !important;
-    border-radius: 4px !important;
-    color: #C0C0C0 !important;
+    gap: 8px !important;
+    max-width: 300px !important;
+    padding: 6px 10px !important;
+    border: 2px dashed #ff6b6b !important;
+    background: rgba(46, 26, 71, 0.7) !important;
+    border-radius: 8px !important;
+    color: #e0e0e0 !important;
+    transition: border-color 0.3s ease !important;
 }
 .compact-upload.horizontal:hover {
-    border-color: #ff6b6b !important;
-    background: rgba(128, 0, 0, 0.7) !important;
+    border-color: #ff8787 !important;
 }
 .compact-upload.horizontal button {
-    padding: 2px 6px !important;
-    font-size: 0.6rem !important;
-    height: 20px !important;
-    min-width: 40px !important;
-}
-.gr-tab {
-    background: rgba(128, 0, 0, 0.5) !important;
-    border-radius: 5px 5px 0 0 !important;
-    padding: 0.3rem 0.6rem !important;
-    margin: 0 1px !important;
-    color: #C0C0C0 !important;
-    border: 1px solid #ff4040 !important;
-    z-index: 1500;
+    padding: 4px 10px !important;
     font-size: 0.8rem !important;
 }
+.gr-tab {
+    background: rgba(46, 26, 71, 0.7) !important;
+    border-radius: 8px 8px 0 0 !important;
+    padding: 0.5rem 1rem !important;
+    margin: 0 2px !important;
+    color: #e0e0e0 !important;
+    border: 2px solid #ff6b6b !important;
+    font-size: 1rem !important;
+    transition: all 0.3s ease !important;
+}
 .gr-tab-selected {
-    background: #800000 !important;
-    color: #ffffff !important;
-    border: 1px solid #ff6b6b !important;
-    box-shadow: 0 2px 5px rgba(255, 64, 64, 0.5) !important;
+    background: #ff6b6b !important;
+    color: #fff !important;
+    border: 2px solid #ff8787 !important;
+    box-shadow: 0 2px 8px rgba(255, 107, 107, 0.5) !important;
 }
 .compact-grid {
-    gap: 0.15rem !important;
-    max-height: 30vh;
+    gap: 0.5rem !important;
+    max-height: 40vh;
     overflow-y: auto;
-    padding: 0.3rem;
-    background: rgba(128, 0, 0, 0.3) !important;
-    border-radius: 5px;
-    border: 1px solid #ff4040 !important;
+    padding: 1rem;
+    background: rgba(46, 26, 71, 0.7) !important;
+    border-radius: 10px;
+    border: 2px solid #ff6b6b !important;
     width: 100%;
 }
 .compact-dropdown {
-    padding: 4px 6px !important;
-    border-radius: 5px !important;
-    border: 1px solid #ff4040 !important;
-    background: rgba(128, 0, 0, 0.5) !important;
-    color: #C0C0C0 !important;
+    padding: 8px 12px !important;
+    border-radius: 8px !important;
+    border: 2px solid #ff6b6b !important;
+    background: rgba(46, 26, 71, 0.7) !important;
+    color: #e0e0e0 !important;
     width: 100%;
-    font-size: 0.8rem !important;
+    font-size: 1rem !important;
+    transition: border-color 0.3s ease !important;
+}
+.compact-dropdown:hover {
+    border-color: #ff8787 !important;
 }
 .gr-slider input[type="range"] {
     -webkit-appearance: none !important;
     width: 100% !important;
-    height: 5px !important;
-    background: #ff4040 !important;
-    border-radius: 2px !important;
+    height: 6px !important;
+    background: #ff6b6b !important;
+    border-radius: 3px !important;
     outline: none !important;
 }
 .gr-slider input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none !important;
-    width: 12px !important;
-    height: 12px !important;
-    background: #800000 !important;
-    border: 1px solid #ff6b6b !important;
+    width: 16px !important;
+    height: 16px !important;
+    background: #fff !important;
+    border: 2px solid #ff6b6b !important;
     border-radius: 50% !important;
     cursor: pointer !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2) !important;
 }
 .gr-slider input[type="range"]::-moz-range-thumb {
-    width: 12px !important;
-    height: 12px !important;
-    background: #800000 !important;
-    border: 1px solid #ff6b6b !important;
+    width: 16px !important;
+    height: 16px !important;
+    background: #fff !important;
+    border: 2px solid #ff6b6b !important;
     border-radius: 50% !important;
     cursor: pointer !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2) !important;
 }
 @media (max-width: 768px) {
     #app-container {
         max-width: 100%;
-        padding: 0.1rem;
+        padding: 0.5rem;
     }
     .header-text {
-        font-size: 1.2rem;
-        padding: 1.5rem 0.3rem 0.2rem;
+        font-size: 1.5rem;
+        padding: 2rem 0 0.5rem;
     }
     .logo-img {
-        width: 40px;
+        width: 60px;
     }
     .compact-upload.horizontal {
         max-width: 100% !important;
     }
     .compact-grid {
-        max-height: 25vh;
+        max-height: 30vh;
     }
     .footer {
         max-width: 100%;
@@ -445,59 +463,69 @@ def update_ensemble_models(category):
 
 # Arayüzü bir fonksiyon olarak tanımla
 def create_interface():
-    with gr.Blocks(title="🎵 SESA-Fast-Separation 🎵", css=CSS, elem_id="app-container") as app:
-        gr.Markdown("<h1 class='header-text'>🎵 SESA-Fast-Separation 🎵</h1>")
+    with gr.Blocks(title="🎵 SESA Fast Separation 🎵", css=CSS, elem_id="app-container") as app:
+        gr.Markdown("<h1 class='header-text'>🎵 SESA Fast Separation 🎵</h1>")
         
         with gr.Tabs():
+            # Settings Sekmesi
             with gr.Tab("⚙️ Settings"):
-                model_file_dir = gr.Textbox(value="/tmp/audio-separator-models/", label="📂 Model Cache", placeholder="/tmp/audio-separator-models/")
-                output_dir = gr.Textbox(value="output", label="📤 Output Dir", placeholder="output")
-                output_format = gr.Dropdown(value="wav", choices=OUTPUT_FORMATS, label="🎶 Format")
-                norm_threshold = gr.Slider(0.1, 1, value=0.9, step=0.1, label="🔊 Norm Thresh")
-                amp_threshold = gr.Slider(0.1, 1, value=0.6, step=0.1, label="📈 Amp Thresh")
-                batch_size = gr.Slider(1, 16, value=1, step=1, label="⚡ Batch Size")
+                with gr.Group(elem_classes="dubbing-theme"):
+                    gr.Markdown("### General Settings")
+                    model_file_dir = gr.Textbox(value="/tmp/audio-separator-models/", label="📂 Model Cache", placeholder="Path to model directory", interactive=True)
+                    output_dir = gr.Textbox(value="output", label="📤 Output Directory", placeholder="Where to save results", interactive=True)
+                    output_format = gr.Dropdown(value="wav", choices=OUTPUT_FORMATS, label="🎶 Output Format", interactive=True)
+                    norm_threshold = gr.Slider(0.1, 1, value=0.9, step=0.1, label="🔊 Normalization Threshold", interactive=True)
+                    amp_threshold = gr.Slider(0.1, 1, value=0.6, step=0.1, label="📈 Amplification Threshold", interactive=True)
+                    batch_size = gr.Slider(1, 16, value=1, step=1, label="⚡ Batch Size", interactive=True)
 
+            # Roformer Sekmesi
             with gr.Tab("🎤 Roformer"):
-                roformer_audio = gr.Audio(label="🎧 Input Audio", type="filepath")
-                roformer_exclude_stems = gr.Textbox(label="🚫 Exclude Stems (comma-separated)", placeholder="e.g., vocals, drums")
-                roformer_category = gr.Dropdown(label="📚 Category", choices=list(ROFORMER_MODELS.keys()), value="General Purpose")
-                roformer_model = gr.Dropdown(label="🛠️ Model", choices=list(ROFORMER_MODELS["General Purpose"].keys()))
-                with gr.Row():
-                    roformer_seg_size = gr.Slider(32, 4000, value=256, step=32, label="📏 Seg Size")
-                    roformer_overlap = gr.Slider(2, 10, value=8, step=1, label="🔄 Overlap")
-                with gr.Row():
-                    roformer_pitch_shift = gr.Slider(-12, 12, value=0, step=1, label="🎵 Pitch")
-                    roformer_override_seg_size = gr.Checkbox(value=False, label="🔧 Override Seg")
-                with gr.Row():
-                    url_ro = gr.Textbox(label="🔗 URL", placeholder="Audio/Video URL")
-                    download_roformer = gr.Button("⬇️ Download")
-                roformer_button = gr.Button("✂️ Separate!", variant="primary")
-                with gr.Row():
-                    roformer_stem1 = gr.Audio(label="🎸 Stem 1", type="filepath", interactive=False)
-                    roformer_stem2 = gr.Audio(label="🥁 Stem 2", type="filepath", interactive=False)
+                with gr.Group(elem_classes="dubbing-theme"):
+                    gr.Markdown("### Audio Separation")
+                    with gr.Row():
+                        roformer_audio = gr.Audio(label="🎧 Upload Audio", type="filepath", interactive=True)
+                        url_ro = gr.Textbox(label="🔗 Or Paste URL", placeholder="YouTube or audio URL", interactive=True)
+                        download_roformer = gr.Button("⬇️ download", variant="secondary")
+                    roformer_exclude_stems = gr.Textbox(label="🚫 Exclude Stems", placeholder="e.g., vocals, drums (comma-separated)", interactive=True)
+                    with gr.Row():
+                        roformer_category = gr.Dropdown(label="📚 Category", choices=list(ROFORMER_MODELS.keys()), value="General Purpose", interactive=True)
+                        roformer_model = gr.Dropdown(label="🛠️ Model", choices=list(ROFORMER_MODELS["General Purpose"].keys()), interactive=True)
+                    with gr.Row():
+                        roformer_seg_size = gr.Slider(32, 4000, value=256, step=32, label="📏 Segment Size", interactive=True)
+                        roformer_overlap = gr.Slider(2, 10, value=8, step=1, label="🔄 Overlap", interactive=True)
+                    with gr.Row():
+                        roformer_pitch_shift = gr.Slider(-12, 12, value=0, step=1, label="🎵 Pitch Shift", interactive=True)
+                        roformer_override_seg_size = gr.Checkbox(value=False, label="🔧 Override Segment Size", interactive=True)
+                    roformer_button = gr.Button("✂️ Separate Now!", variant="primary")
+                    with gr.Row():
+                        roformer_stem1 = gr.Audio(label="🎸 Stem 1", type="filepath", interactive=False)
+                        roformer_stem2 = gr.Audio(label="🥁 Stem 2", type="filepath", interactive=False)
 
+            # Auto Ensemble Sekmesi
             with gr.Tab("🎚️ Auto Ensemble"):
-                ensemble_audio = gr.Audio(label="🎧 Input Audio", type="filepath")
-                ensemble_exclude_stems = gr.Textbox(label="🚫 Exclude Stems (comma-separated)", placeholder="e.g., vocals, drums")
-                ensemble_category = gr.Dropdown(label="📚 Category", choices=list(ROFORMER_MODELS.keys()), value="Instrumentals")
-                ensemble_models = gr.Dropdown(label="🛠️ Models", choices=list(ROFORMER_MODELS["Instrumentals"].keys()), multiselect=True)
-                with gr.Row():
-                    ensemble_seg_size = gr.Slider(32, 4000, value=256, step=32, label="📏 Seg Size")
-                    ensemble_overlap = gr.Slider(2, 10, value=8, step=1, label="🔄 Overlap")
-                with gr.Row():
-                    ensemble_use_tta = gr.Checkbox(value=False, label="🔍 TTA")
-                ensemble_method = gr.Dropdown(label="⚙️ Method", choices=['avg_wave', 'median_wave', 'max_wave', 'min_wave', 'avg_fft', 'median_fft', 'max_fft', 'min_fft'], value='avg_wave')
-                ensemble_weights = gr.Textbox(label="⚖️ Weights (comma-separated)", placeholder="1.0, 1.0, ...", value="")
-                with gr.Row():
-                    url_ensemble = gr.Textbox(label="🔗 URL", placeholder="Audio/Video URL")
-                    download_ensemble = gr.Button("⬇️ Download")
-                ensemble_button = gr.Button("🎛️ Run Ensemble!", variant="primary")
-                ensemble_output = gr.Audio(label="🎶 Output", type="filepath", interactive=False)
-                ensemble_status = gr.Textbox(label="📢 Status", interactive=False)
+                with gr.Group(elem_classes="dubbing-theme"):
+                    gr.Markdown("### Ensemble Processing")
+                    with gr.Row():
+                        ensemble_audio = gr.Audio(label="🎧 Upload Audio", type="filepath", interactive=True)
+                        url_ensemble = gr.Textbox(label="🔗 Or Paste URL", placeholder="YouTube or audio URL", interactive=True)
+                        download_ensemble = gr.Button("⬇️ download", variant="secondary")
+                    ensemble_exclude_stems = gr.Textbox(label="🚫 Exclude Stems", placeholder="e.g., vocals, drums (comma-separated)", interactive=True)
+                    with gr.Row():
+                        ensemble_category = gr.Dropdown(label="📚 Category", choices=list(ROFORMER_MODELS.keys()), value="Instrumentals", interactive=True)
+                        ensemble_models = gr.Dropdown(label="🛠️ Models", choices=list(ROFORMER_MODELS["Instrumentals"].keys()), multiselect=True, interactive=True)
+                    with gr.Row():
+                        ensemble_seg_size = gr.Slider(32, 4000, value=256, step=32, label="📏 Segment Size", interactive=True)
+                        ensemble_overlap = gr.Slider(2, 10, value=8, step=1, label="🔄 Overlap", interactive=True)
+                        ensemble_use_tta = gr.Checkbox(value=False, label="🔍 Use TTA", interactive=True)
+                    ensemble_method = gr.Dropdown(label="⚙️ Ensemble Method", choices=['avg_wave', 'median_wave', 'max_wave', 'min_wave', 'avg_fft', 'median_fft', 'max_fft', 'min_fft'], value='avg_wave', interactive=True)
+                    ensemble_weights = gr.Textbox(label="⚖️ Weights", placeholder="e.g., 1.0, 1.0 (comma-separated)", interactive=True)
+                    ensemble_button = gr.Button("🎛️ Run Ensemble!", variant="primary")
+                    ensemble_output = gr.Audio(label="🎶 Ensemble Result", type="filepath", interactive=False)
+                    ensemble_status = gr.Textbox(label="📢 Status", interactive=False)
 
-        gr.HTML("<div class='footer'>Powered by Audio-Separator 🌟🎶</div>")
+        gr.HTML("<div class='footer'>Powered by Audio-Separator 🌟🎶 | Made with ❤️</div>")
 
-        # Event Handlers
+        # Event Handlers (Aynı kalıyor)
         roformer_category.change(update_roformer_models, inputs=[roformer_category], outputs=[roformer_model])
         download_roformer.click(fn=download_audio, inputs=[url_ro], outputs=[roformer_audio])
         roformer_button.click(
@@ -509,8 +537,8 @@ def create_interface():
         download_ensemble.click(fn=download_audio, inputs=[url_ensemble], outputs=[ensemble_audio])
         ensemble_button.click(
             lambda *args: auto_ensemble_process(
-                *args[:-1],  # Tüm argümanlar hariç sonuncusu (weights hariç)
-                weights=[float(w.strip()) for w in args[-1].split(',')] if args[-1] else None  # Weights'i parse et
+                *args[:-1],
+                weights=[float(w.strip()) for w in args[-1].split(',')] if args[-1] else None
             ),
             inputs=[ensemble_audio, ensemble_models, ensemble_seg_size, ensemble_overlap, output_format, ensemble_use_tta, model_file_dir, output_dir, norm_threshold, amp_threshold, batch_size, ensemble_method, ensemble_exclude_stems, ensemble_weights],
             outputs=[ensemble_output, ensemble_status]
@@ -525,11 +553,6 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     app = create_interface()
-    if args.ngrok_token:
-        from pyngrok import ngrok
-        ngrok.set_auth_token(args.ngrok_token)
-        public_url = ngrok.connect(args.port, "http")
-        print(f"Ngrok URL: {public_url}")
-        app.launch(server_name="0.0.0.0", server_port=args.port)
-    else:
-        app.launch(server_name="0.0.0.0", server_port=args.port, share=True)
+    app.launch(server_name="0.0.0.0", server_port=args.port, share=True)
+       
+    app.close()
