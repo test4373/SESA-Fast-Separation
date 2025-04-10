@@ -475,8 +475,8 @@ def create_interface():
                     output_dir = gr.Textbox(value="output", label="📤 Output Directory", placeholder="Where to save results", interactive=True)
                     output_format = gr.Dropdown(value="wav", choices=OUTPUT_FORMATS, label="🎶 Output Format", interactive=True)
                     norm_threshold = gr.Slider(0.1, 1, value=0.9, step=0.1, label="🔊 Normalization Threshold", interactive=True)
-                    amp_threshold = gr.Slider(0.1, 1, value=0.6, step=0.1, label="📈 Amplification Threshold", interactive=True)
-                    batch_size = gr.Slider(1, 16, value=1, step=1, label="⚡ Batch Size", interactive=True)
+                    amp_threshold = gr.Slider(0.1, 1, value=0.3, step=0.1, label="📈 Amplification Threshold", interactive=True)
+                    batch_size = gr.Slider(1, 16, value=4, step=1, label="⚡ Batch Size", interactive=True)
 
             # Roformer Sekmesi
             with gr.Tab("🎤 Roformer"):
