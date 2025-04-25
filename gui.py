@@ -22,7 +22,9 @@ logger = logging.getLogger(__name__)
 # Model dictionaries organized by category
 ROFORMER_MODELS = {
     "Vocals": {
+        'MelBand Roformer | Big Beta 6X by unwa': 'melband_roformer_big_beta6x.ckpt',
         'MelBand Roformer | Vocals by Kimberley Jensen': 'vocals_mel_band_roformer.ckpt',
+        'MelBand Roformer Kim | FT 3 by unwa': 'mel_band_roformer_kim_ft3_unwa.ckpt',
         'MelBand Roformer | Vocals by becruily': 'mel_band_roformer_vocals_becruily.ckpt',
         'MelBand Roformer | Vocals Fullness by Aname': 'mel_band_roformer_vocal_fullness_aname.ckpt',
         'BS Roformer | Vocals by Gabox': 'bs_roformer_vocals_gabox.ckpt',
@@ -35,6 +37,13 @@ ROFORMER_MODELS = {
         'BS Roformer | Male-Female by aufr33': 'bs_roformer_male_female_by_aufr33_sdr_7.2889.ckpt',
     },
     "Instrumentals": {
+        'MelBand Roformer | FVX by Gabox': 'mel_band_roformer_instrumental_fvx_gabox.ckpt',
+        'MelBand Roformer | INSTV8N by Gabox': 'mel_band_roformer_instrumental_instv8n_gabox.ckpt',
+        'MelBand Roformer | INSTV8 by Gabox': 'mel_band_roformer_instrumental_instv8_gabox.ckpt',
+        'MelBand Roformer | INSTV7N by Gabox': 'mel_band_roformer_instrumental_instv7n_gabox.ckpt',
+        'MelBand Roformer | Instrumental Bleedless V3 by Gabox': 'mel_band_roformer_instrumental_bleedless_v3_gabox.ckpt',
+        'MelBand Roformer Kim | Inst V1 (E) Plus by Unwa': 'melband_roformer_inst_v1e_plus.ckpt',
+        'MelBand Roformer Kim | Inst V1 Plus by Unwa': 'melband_roformer_inst_v1_plus.ckpt',
         'MelBand Roformer Kim | Inst V1 by Unwa': 'melband_roformer_inst_v1.ckpt',
         'MelBand Roformer Kim | Inst V1 (E) by Unwa': 'melband_roformer_inst_v1e.ckpt',
         'MelBand Roformer Kim | Inst V2 by Unwa': 'melband_roformer_inst_v2.ckpt',
@@ -77,6 +86,7 @@ ROFORMER_MODELS = {
     "Karaoke": {
         'Mel-Roformer-Karaoke-Aufr33-Viperx': 'mel_band_roformer_karaoke_aufr33_viperx_sdr_10.1956.ckpt',
         'MelBand Roformer | Karaoke by Gabox': 'mel_band_roformer_karaoke_gabox.ckpt',
+        "MelBand Roformer | Karaoke by becruily": 'mel_band_roformer_karaoke_becruily.ckpt',
     },
     "General Purpose": {
         'BS-Roformer-Viperx-1297': 'model_bs_roformer_ep_317_sdr_12.9755.ckpt',
